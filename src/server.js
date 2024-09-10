@@ -1,5 +1,6 @@
-import http from 'http';
 import express from 'express'; // módulo que trata as requisições HTTP
+import http from 'http';
+import apiRouter from './api-v1/api-router';
 
 
 
@@ -8,11 +9,11 @@ const app = express();
 
 
 
-// Funções de middleware,
-// que interceptam requisições e respondem a requisição ou configuram para outras funções.
-app.get('/doc', (req, res, next) => res.send('Documentação da aplicação!'));
-
-app.get('/api/v1', (req, res, next) => res.send('API V1 no ar!'));
+// Uma mini aplicação é um router.
+// Um router trata as requisições e direciona para o processamento correto.
+// O "Use" intercepta qualquer tipo de requisição e encaminha para a próxima, caso nenhuma seja compatível
+app.use('api/v1', apiRouter);
+app.use('/', (req, res) => res.send('-- API Contatos --'));
 
 
 
