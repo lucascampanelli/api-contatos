@@ -10,8 +10,9 @@ const app = express();
 
 // Funções de middleware,
 // que interceptam requisições e respondem a requisição ou configuram para outras funções.
-// Qualquer requisição que chegar na rota '/'.
-app.all('/', (req, res, next) => res.send('Tudo funcionando!'));
+app.get('/doc', (req, res, next) => res.send('Documentação da aplicação!'));
+
+app.get('/api/v1', (req, res, next) => res.send('API V1 no ar!'));
 
 
 
