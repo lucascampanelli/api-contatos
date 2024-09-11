@@ -5,7 +5,8 @@ import pessoaModel from '../models/pessoa-model';
 
 const pessoaRouter = express.Router();
 
-// pessoaRouter.use('/', (req, res, next) => res.send('ENDPOINT PESSOA'));
+
+
 pessoaRouter.get('/', listarPessoas);
 pessoaRouter.post('/', inserePessoas);
 

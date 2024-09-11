@@ -10,23 +10,25 @@ function insere(obj, callback) {
 
 function lista(params, callback) {
 
-    const objFake = [
-        {
-            "id": 5,
-            "nome": "Francis Ford Copolla",
-            "email": "coppola@hollywood.com",
-            "telefone": "001-124-2111",
-            "organizacao": null,
-            "tags": [
-                "cinema",
-                "trabalho"
-            ]
-        }
-    ];
+    // const objFake = [
+    //     {
+    //         "id": 5,
+    //         "nome": "Francis Ford Copolla",
+    //         "email": "coppola@hollywood.com",
+    //         "telefone": "001-124-2111",
+    //         "organizacao": null,
+    //         "tags": [
+    //             "cinema",
+    //             "trabalho"
+    //         ]
+    //     }
+    // ];
 
-    const err = null;
+    // const err = null;
     
-    callback(err, objFake);
+    // callback(err, objFake);
+
+    db.pessoasDB.find({}, callback);
 
 }
 
