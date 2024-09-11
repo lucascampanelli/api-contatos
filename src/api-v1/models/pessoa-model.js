@@ -1,4 +1,10 @@
-function insere() {
+import db from "../utils/db";
+
+
+
+function insere(obj, callback) {
+
+    db.pessoasDB.insert(obj, callback);
 
 }
 
