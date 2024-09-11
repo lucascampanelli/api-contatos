@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Uma mini aplicação é um router.
 // Um router trata as requisições e direciona para o processamento correto.
 // O "Use" intercepta qualquer tipo de requisição e encaminha para a próxima, caso nenhuma seja compatível
-app.use('api/v1', apiRouter);
+app.use('/api/v1', apiRouter);
 app.use('/', (req, res) => res.send('-- API Contatos --'));
 
 
