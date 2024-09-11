@@ -1,5 +1,7 @@
 import express from 'express';
+import { validate } from 'jsonschema'; // módulo que faz a validação de um JSON baseado em um schema
 import pessoaModel from '../models/pessoa-model';
+import { pessoaSchema } from '../models/schemas';
 
 
 
@@ -27,6 +29,12 @@ function listarPessoas(req, res, next) {
 }
 
 function inserePessoas(req, res, next) {
+
+    // Validação do documento JSON recebido
+    let result = validate(req.body, pessoaSchema);
+
+    if(result?.errors?.length > 0)
+        res.status(400).send("Erro no formato do objeto JSON.");
 
     pessoaModel.insere(req.body, (err, objNovo) => {
 
